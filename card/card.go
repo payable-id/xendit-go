@@ -85,6 +85,23 @@ func ReverseAuthorizationWithContext(ctx context.Context, data *ReverseAuthoriza
 	return client.ReverseAuthorizationWithContext(ctx, data)
 }
 
+/* Tokenization */
+
+// GetToken gets a token
+func GetToken(data *GetTokenParams) (*xendit.Token, *xendit.Error) {
+	return GetTokenWithContext(context.Background(), data)
+}
+
+// GetTokenWithContext gets a token with context
+func GetTokenWithContext(ctx context.Context, data *GetTokenParams) (*xendit.Token, *xendit.Error) {
+	client, err := getClient()
+	if err != nil {
+		return nil, err
+	}
+
+	return client.GetTokenWithContext(ctx, data)
+}
+
 func getClient() (*Client, *xendit.Error) {
 	return &Client{
 		Opt:          &xendit.Opt,

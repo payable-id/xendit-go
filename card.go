@@ -59,3 +59,24 @@ type CardReverseAuthorization struct {
 	Created            *time.Time `json:"created"`
 	Currency           string     `json:"currency,omitempty"`
 }
+
+type CardInfo struct {
+	Bank    string `json:"bank"`
+	Country string `json:"country"`
+	Type    string `json:"type"`
+	Brand   string `json:"brand"`
+}
+
+// Token contains data from Xendit's API response of Get Token request.
+// For more details see https://developers.xendit.co/api-reference/#get-token
+// For documentation of subpackage card, checkout https://pkg.go.dev/github.com/xendit/xendit-go/card
+type Token struct {
+	ID                  string            `json:"id"`
+	BusinessID          string            `json:"business_id"`
+	Status              string            `json:"status"`
+	CardExpirationMonth string            `json:"card_expiration_month"`
+	CardExpirationYear  string            `json:"card_expiration_year"`
+	CardInfo            CardInfo          `json:"card_info"`
+	Metadata            map[string]string `json:"metadata"`
+	Created             *time.Time        `json:"created"`
+}

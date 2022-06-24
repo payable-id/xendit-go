@@ -48,3 +48,7 @@ type ReverseAuthorizationParams struct {
 	ChargeID   string `json:"-" validate:"required"`
 	ExternalID string `json:"external_id" validate:"required"`
 }
+
+type GetTokenParams struct {
+	ID string `json:"id" validate:"required"`
+}
