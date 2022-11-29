@@ -32,7 +32,8 @@ type CaptureChargeParams struct {
 
 // GetChargeParams contains parameters for GetCharge
 type GetChargeParams struct {
-	ChargeID string `json:"credit_card_charge_id" validate:"required"`
+	ChargeID   string `json:"credit_card_charge_id" validate:"omitempty"`
+	ExternalID string `json:"external_id" validate:"required"`
 }
 
 // CreateRefundParams contains parameters for CreateRefund

@@ -94,7 +94,7 @@ func (c *Client) GetChargeWithContext(ctx context.Context, data *GetChargeParams
 	err := c.APIRequester.Call(
 		ctx,
 		"GET",
-		fmt.Sprintf("%s/credit_card_charges/%s", c.Opt.XenditURL, data.ChargeID),
+		fmt.Sprintf("%s/credit_card_charges/%s?id_type=external", c.Opt.XenditURL, data.ExternalID),
 		c.Opt.SecretKey,
 		nil,
 		nil,
