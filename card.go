@@ -27,6 +27,7 @@ type CardCharge struct {
 	Descriptor            string     `json:"descriptor,omitempty"`
 	MidLabel              string     `json:"mid_label,omitempty"`
 	Currency              string     `json:"currency,omitempty"`
+	ApprovalCode          string     `json:"approval_code,omitempty"`
 }
 
 // CardRefund contains data from Xendit's API response of card's Create Refund request.
