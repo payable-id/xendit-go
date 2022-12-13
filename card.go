@@ -60,3 +60,26 @@ type CardReverseAuthorization struct {
 	Created            *time.Time `json:"created"`
 	Currency           string     `json:"currency,omitempty"`
 }
+
+type CardToken struct {
+	BusinessID          string `json:"business_id"`
+	CardExpirationMonth string `json:"card_expiration_month"`
+	CardExpirationYear  string `json:"card_expiration_year"`
+	CardInfo            struct {
+		Bank        string `json:"bank"`
+		Brand       string `json:"brand"`
+		CardArtURL  string `json:"card_art_url"`
+		Country     string `json:"country"`
+		Fingerprint string `json:"fingerprint"`
+		Type        string `json:"type"`
+	} `json:"card_info"`
+	Created  string `json:"created"`
+	ID       string `json:"id"`
+	Metadata struct {
+		Bank        string `json:"bank"`
+		Brand       string `json:"brand"`
+		CountryCode string `json:"country_code"`
+		Type        string `json:"type"`
+	} `json:"metadata"`
+	Status string `json:"status"`
+}

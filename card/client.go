@@ -169,3 +169,31 @@ func (c *Client) ReverseAuthorizationWithContext(ctx context.Context, data *Reve
 
 	return response, nil
 }
+
+func (c *Client) GetToken(data *GetTokenParams) (*xendit.CardToken, *xendit.Error) {
+	return c.GetTokenWithContext(context.Background(), data)
+}
+
+// ReverseAuthorizationWithContext reverses a card authorization with context
+func (c *Client) GetTokenWithContext(ctx context.Context, data *GetTokenParams) (*xendit.CardToken, *xendit.Error) {
+	if err := validator.ValidateRequired(ctx, data); err != nil {
+		return nil, validator.APIValidatorErr(err)
+	}
+
+	response := &xendit.CardToken{}
+
+	err := c.APIRequester.Call(
+		ctx,
+		"GET",
+		fmt.Sprintf("%s/credit_card_tokens/%s", c.Opt.XenditURL, data.CreditCardTokenID),
+		c.Opt.SecretKey,
+		nil,
+		nil,
+		response,
+	)
+	if err != nil {
+		return nil, err
+	}
+
+	return response, nil
+}

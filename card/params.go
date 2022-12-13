@@ -49,3 +49,8 @@ type ReverseAuthorizationParams struct {
 	ChargeID   string `json:"-" validate:"required"`
 	ExternalID string `json:"external_id" validate:"required"`
 }
+
+// GetTokenParams contains parameters for GetToken
+type GetTokenParams struct {
+	CreditCardTokenID string `json:"credit_card_token_id" validate:"required"`
+}
