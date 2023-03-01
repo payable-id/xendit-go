@@ -90,15 +90,15 @@ func ewalletTest() {
 		Currency:       "IDR",
 		Amount:         10000,
 		CheckoutMethod: "TOKENIZED_PAYMENT",
-		ChannelCode:    "ID_DANA",
+		ChannelCode:    "ID_SHOPEEPAY",
 		ChannelProperties: map[string]string{
 			"success_redirect_url": "https://yourwebsite.com/order/123",
 			"failure_redirect_url": "https://yourwebsite.com/failure",
 			"cancel_redirect_url":  "https://yourwebsite.com/cancel",
 		},
 		CaptureNow:      true,
-		CustomerID:      "cust-d9630db4-0c3d-41b8-bf36-77d7cb0b5dee",
-		PaymentMethodID: "pm-d69f5d53-2f9c-43dd-a210-cc9c0cdc28d4",
+		CustomerID:      "d17cc20d-793b-4f9a-bd8c-2b1834b5b859",
+		PaymentMethodID: "pm-bf6cb1b6-e3ac-45ec-8fbf-f674c1a9974d",
 	}
 
 	createEWalletChargeTokenizedResponse, err := ewallet.CreateEWalletCharge(&createEWalletChargeTokenized)
